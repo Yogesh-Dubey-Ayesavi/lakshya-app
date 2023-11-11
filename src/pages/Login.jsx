@@ -33,7 +33,7 @@ console.log( await  supabaseClient.auth.getUser())
     <>
       <h1>Login</h1>
       <button onClick={handleLogin}>Login With Google</button>
-      <button onClick={checkLogin}>check</button>
+      <button onClick={checkLogin}>Check Status</button>
 
     </>
   );
