@@ -6,8 +6,8 @@ import { useAuth } from '../contexts/auth';
       const { user } =   useAuth();
       const navigate = useNavigate();
       useEffect(() => {
-        console.log(user.user_metadata)
-        if (user?.user_metadata?.sem ==null &&user?.user_metadata?.phone_number) {
+        if (user?.user_metadata?.sem ==null &&user?.user_metadata?.phone_number == null) {
+          navigate("/update_user")
         }   }, []);
 
       return (
