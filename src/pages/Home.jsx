@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabaseClient } from "../utils/supabase_helper";
+import { supabaseClient ,lakshya} from "../utils/supabase_helper";
 
 
 function handleLogout(){
     supabaseClient.auth.signOut();
 }
+
 const Home = () => {
   const [data, setData] = useState({
     fullName: "",
