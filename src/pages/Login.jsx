@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../contexts/auth";
-import { supabaseClient } from "../utils/supabase_helper";
 const Login = () => {
 
   const { authenticate ,user} = useAuth()
@@ -25,15 +24,29 @@ const Login = () => {
   };
 
 
-async function  checkLogin(){
-console.log( await  supabaseClient.auth.getUser())
-}
 
   return (
     <>
-      <h1>Login</h1>
-      <button onClick={handleLogin }>Login With Google</button>
-      <button onClick={checkLogin}>Check  Status</button>
+     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <h1 style={{ marginBottom: '20px', fontSize: '2em', color: '#4285f4' }}>Welcome </h1>
+      <button
+        style={{
+          padding: '15px 30px',
+          backgroundColor: '#4285f4',
+          color: 'white',
+          border: 'none',
+          borderRadius: '50px',
+          cursor: 'pointer',
+          fontSize: '1.2em',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
+        }}
+        onClick={handleLogin}
+      >
+        Login with Google
+      </button>
+    </div>
+
 
     </>
   );
