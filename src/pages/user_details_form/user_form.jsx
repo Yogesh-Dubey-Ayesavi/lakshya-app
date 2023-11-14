@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/auth";
 import { supabaseClient } from "../../utils/supabase_helper";
+import useAuth from "../../hooks/useAuth";
 import "./user_form.css"; // Import the CSS file
 
 const MyForm = () => {
