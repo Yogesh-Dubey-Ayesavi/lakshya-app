@@ -12,11 +12,11 @@ const router = createBrowserRouter([
     element: <PrivateRoute />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <CardList />,
       },
       {
-        path: "update_user",
+        path: "/update_user",
         element: <MyForm />,
       },
     ],
@@ -26,9 +26,9 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: '*',
-    element: <NotFound />
-  }
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 const App = () => {
