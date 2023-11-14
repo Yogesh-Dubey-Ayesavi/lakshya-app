@@ -5,6 +5,9 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  position: relative;
+  top: 5rem;
+  left: 1rem
 }
 
 .card {
@@ -48,4 +51,12 @@
 .card-price {
   font-weight: bold;
   color: #4285f4;
+}
+
+@media (max-width: 767px) {
+  .card-list-container {
+
+    top: 20rem; /* Example adjustment for top positioning */
+    left: 0;   /* Example adjustment for left positioning */
+  }
 }
