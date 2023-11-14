@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
+import NavBar from "../components/NavBar/NavBar";
 
 export function PrivateRoute() {
   const { user } = useAuth();
@@ -12,7 +13,15 @@ export function PrivateRoute() {
     ) {
       navigate("/update_user");
     }
-  }, [navigate, user?.user_metadata?.phone_number, user?.user_metadata?.sem]);
+    if (user == undefined) {
+      navigate("/login");
+    }
+  }, [navigate, user, user?.user_metadata]);
 
-  return user != null ? <Outlet /> : navigate('/login');
+  return user != null ? (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  ) : null;
 }

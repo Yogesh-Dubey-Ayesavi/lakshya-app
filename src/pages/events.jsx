@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-import { lakshya, supabaseClient } from "../utils/supabase_helper";
+import { lakshya } from "../utils/supabase_helper";
 import "./events.css";
-
-function handleLogout() {
-  supabaseClient.auth.signOut();
-}
 
 const CardList = () => {
   const [eventList, setEventList] = useState([]);
@@ -14,7 +10,7 @@ const CardList = () => {
     try {
       lakshya.getEvents().then((e) => setEventList(e));
     } catch (error) {
-      console.error(e);
+      console.error(error);
     }
   }, []); // Em
   return (
@@ -32,7 +28,6 @@ const CardList = () => {
           </div>
         </div>
       ))}
-      <button onClick={handleLogout}>LogOut</button>
     </div>
   );
 };
