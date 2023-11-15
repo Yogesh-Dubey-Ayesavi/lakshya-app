@@ -1,23 +1,23 @@
 .card-list-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 25rem);
+  gap: 1rem;
+  padding: 1rem;
   position: relative;
-  top: 5rem;
-  left: 1rem
+  left: 1rem;
 }
 
 .card {
-  max-width: 300px;
+  width: 100%; /* Ensure the card takes the full width of the column */
+  max-width: 25rem; /* Fixed width for each card */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: border 0.7s ease;
   border: 1px solid transparent;
-  padding: 0.5rem
+  padding: 0.5rem;
+  margin-bottom: 1rem; /* Add margin for better spacing */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 .card:hover:not(:focus-within) {
@@ -25,7 +25,7 @@
 }
 
 .card-content .action:hover {
-  transform: none; 
+  transform: none;
 }
 
 .card-image {
@@ -59,29 +59,32 @@
   color: #4285f4;
 }
 
-#date-price{
+#date-price {
   display: flex;
   justify-content: space-between;
 }
 
-.action{
+.action {
+  display: flex;
+  justify-content: center;
   background-color: #4285f4;
   border-radius: 2rem;
   text-align: center;
   color: black;
   padding: 0.6rem;
+  margin: 1rem 3rem;
   transition: background-color 0.3s ease;
-  width: 17.5rem
+  width: 15rem;
 }
 
-.action:hover{
+.action:hover {
   background-color: #015bbb;
 }
 
 @media (max-width: 767px) {
   .card-list-container {
-
-    top: 20rem; /* Example adjustment for top positioning */
-    left: 0;   /* Example adjustment for left positioning */
+    grid-template-columns: 100%; /* 1 column on small screens */
+    left: 0; /* Reset left positioning */
+    padding: 0.5rem; /* Adjust padding for small screens */
   }
 }

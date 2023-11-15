@@ -1,5 +1,4 @@
 // NotFound.js
-import React from 'react';
 import './not_found.css'; // Import the stylesheet
 
 const NotFound = () => {

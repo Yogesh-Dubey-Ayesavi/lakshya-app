@@ -1,5 +1,5 @@
 #navbar {
-  position: fixed;
+  position: sticky;
   top: 2rem;
   left: 24%;
   display: flex;
@@ -9,6 +9,8 @@
   background-color: #333333;
   border-radius: 10rem;
   padding: 2rem;
+  z-index: 100;
+  margin-bottom: 3rem;
 }
 
 #navbar > a {
@@ -22,7 +24,6 @@
     width: 70vw;
     height: 2rem;
     padding: 1rem;
-    z-index: 100; 
     font-size: 0.9rem;
   }
 }

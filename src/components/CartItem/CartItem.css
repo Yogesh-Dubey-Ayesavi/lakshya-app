@@ -34,3 +34,19 @@
   #action > button{
     height: 3rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .cart-item {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+    }
+  
+    .cart-item-image {
+      width: 100%; /* Full width for smaller screens */
+      margin-bottom: 10px;
+    }
+  
+    #action {
+      justify-content: space-evenly;
+    }
+  }
