@@ -15,11 +15,17 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: border 0.7s ease;
+  border: 1px solid transparent;
+  padding: 0.5rem
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card:hover:not(:focus-within) {
+  border: 1px solid rgba(192, 192, 192, 0.3); /* silver with a reduced opacity */
+}
+
+.card-content .action:hover {
+  transform: none; 
 }
 
 .card-image {
@@ -35,7 +41,7 @@
 .card-title {
   margin-bottom: 10px;
   font-size: 1.2em;
-  color: #333;
+  color: #888;
 }
 
 .card-description {
@@ -51,6 +57,25 @@
 .card-price {
   font-weight: bold;
   color: #4285f4;
+}
+
+#date-price{
+  display: flex;
+  justify-content: space-between;
+}
+
+.action{
+  background-color: #4285f4;
+  border-radius: 2rem;
+  text-align: center;
+  color: black;
+  padding: 0.6rem;
+  transition: background-color 0.3s ease;
+  width: 17.5rem
+}
+
+.action:hover{
+  background-color: #015bbb;
 }
 
 @media (max-width: 767px) {

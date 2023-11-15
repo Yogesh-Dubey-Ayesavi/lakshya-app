@@ -1,27 +1,28 @@
 #navbar {
+  position: fixed;
+  top: 2rem;
+  left: 24%;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
   width: 50vw;
   background-color: #333333;
   border-radius: 10rem;
-  padding: 2rem
+  padding: 2rem;
 }
 
-a {
+#navbar > a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 @media (max-width: 767px) {
   #navbar {
-    position: fixed;
-    top: 2rem;
     left: 10%;
     width: 70vw;
     height: 2rem;
     padding: 1rem;
-    justify-content: space-evenly;
-    z-index: 100; /* Ensure the navbar is above other elements */
+    z-index: 100; 
+    font-size: 0.9rem;
   }
 }

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabaseClient } from "../../utils/supabase_helper";
 import useAuth from "../../hooks/useAuth";
-import "./user_form.css"; // Import the CSS file
+import "./UpdateUser.css"; 
 
-const MyForm = () => {
+const UpdateUser = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -106,4 +106,4 @@ const MyForm = () => {
   );
 };
 
-export default MyForm;
+export default UpdateUser;

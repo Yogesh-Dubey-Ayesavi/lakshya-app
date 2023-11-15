@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 
 import NavBar from "../components/NavBar/NavBar";
 
-export function PrivateRoute() {
+export default function PrivateRoute() {
   const { user } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {

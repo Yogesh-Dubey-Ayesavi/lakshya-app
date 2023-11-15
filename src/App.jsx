@@ -1,12 +1,21 @@
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 import NotFound from "./components/404/not_found_component";
 import { AuthProvider } from "./contexts/auth";
 import Login from "./pages/Login";
-import CardList from "./pages/events";
-import MyForm from "./pages/user_details_form/user_form";
-import { PrivateRoute } from "./routes/private_route";
+import Events from "./pages/Events/Events";
+import UpdateUser from "./pages/UpdateUser/UpdateUser";
+import PrivateRoute from "./routes/private_route";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart/Cart";
+import { Toaster } from "react-hot-toast";
+
 
 import logout from "./utils/logout";
+import { CartProvider } from "./contexts/cart";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +24,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <CardList />,
+        element: <Home />,
       },
       {
         path: "/update_user",
-        element: <MyForm />,
+        element: <UpdateUser />,
+      },
+      {
+        path: "/events",
+        element: <Events />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
@@ -28,11 +45,11 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: '/logout',
+    path: "/logout",
     loader: () => {
       logout();
-      return redirect('/')
-    }
+      return redirect("/");
+    },
   },
   {
     path: "*",
@@ -43,7 +60,11 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+        <Toaster position="bottom-center"/>
+
+      </CartProvider>
     </AuthProvider>
   );
 };

@@ -9,7 +9,7 @@ const Login = () => {
     if (user) {
       navigate("/");
     }
-  }, []);
+  }, [navigate, user]);
 
   const handleLogin = async () => {
     const { error } = await authenticate();
