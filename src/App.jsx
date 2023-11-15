@@ -62,7 +62,12 @@ const App = () => {
     <AuthProvider>
       <CartProvider>
         <RouterProvider router={router} />
-        <Toaster position="bottom-center"/>
+        <Toaster position="top-right" toastOptions={{
+          style: {
+            background: "#333",
+            color: "white"
+          }
+        }}/>
 
       </CartProvider>
     </AuthProvider>
