@@ -81,10 +81,22 @@
   background-color: #015bbb;
 }
 
+#title{
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 767px) {
   .card-list-container {
     grid-template-columns: 100%; /* 1 column on small screens */
     left: 0; /* Reset left positioning */
     padding: 0.5rem; /* Adjust padding for small screens */
   }
+
+  #title{
+    font-size: 2rem;
+  }
+
 }

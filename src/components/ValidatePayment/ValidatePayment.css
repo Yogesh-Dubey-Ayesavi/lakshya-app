@@ -1,0 +1,30 @@
+.payment-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .qr-code-container {
+    margin: 20px;
+  }
+  
+  .pay-link {
+    font-size: 18px;
+    margin: 10px;
+  }
+  .file-upload-container {
+    text-align: center;
+  }
+  
+  .file-upload-container label {
+    margin-top: 3rem;
+    display: block;
+  }
+  
+  .file-upload-container input {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
