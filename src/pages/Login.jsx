@@ -39,7 +39,7 @@ const Login = () => {
           style={{
             padding: "15px 30px",
             backgroundColor: "#4285f4",
-            color: "white",
+            color: "#222",
             border: "none",
             borderRadius: "50px",
             cursor: "pointer",

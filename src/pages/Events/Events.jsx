@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { lakshya } from "../../utils/supabase_helper";
-import { useCart } from "../../hooks/useCart";
+import useCart from "../../hooks/useCart";
 import "./Events.css";
 import toast from "react-hot-toast";
 

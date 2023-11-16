@@ -16,6 +16,7 @@ import { Toaster } from "react-hot-toast";
 
 import logout from "./utils/logout";
 import { CartProvider } from "./contexts/cart";
+import PaymentPage from "./pages/Payment/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
+      {
+        path: '/payment',
+        element: <PaymentPage />
+      }
     ],
   },
   {

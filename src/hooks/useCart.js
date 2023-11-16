@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/cart";
 
-export const useCart = () => {
+ const useCart = () => {
     const context = useContext(CartContext);
     if (!context) {
       throw new Error('useCart must be used within a CartProvider');
@@ -9,3 +9,4 @@ export const useCart = () => {
     return context;
   };
   
+  export default useCart
