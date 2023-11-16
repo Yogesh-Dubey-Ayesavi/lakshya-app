@@ -4,6 +4,11 @@ import "./Cart.css";
 
 const Cart = () => {
   const { cart } = useCart();
+
+  const handleCheckout = () => {
+    
+  }
+
   return (
     <>
       <div className="cart-container">
@@ -17,6 +22,7 @@ const Cart = () => {
             ))}
           </div>
         )}
+        <div id="checkout"><button onClick={handleCheckout}>Checkout</button></div>
       </div>
     </>
   );

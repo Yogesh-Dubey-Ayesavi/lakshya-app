@@ -19,6 +19,15 @@
   #empty{
     text-align: center;
   }
+
+  #checkout{
+    margin:1rem;
+    text-align: center;
+  }
+
+  #checkout > button {
+    width: 20rem
+  }
   
   /* Styles for smaller screens (e.g., mobile devices) */
   @media screen and (max-width: 768px) {
@@ -34,5 +43,9 @@
   
     .cart-display {
       grid-template-columns: 1fr;
+    }
+
+    #checkout > button {
+      width: 10rem
     }
   }
