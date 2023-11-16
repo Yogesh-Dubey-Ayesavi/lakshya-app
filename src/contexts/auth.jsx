@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
 import { supabaseClient } from '../utils/supabase_helper';
 
-const AuthContext = React.createContext()
+export const AuthContext = React.createContext()
 
 
 export function AuthProvider({ children }) {
@@ -40,8 +41,3 @@ export function AuthProvider({ children }) {
     return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
   }
 
-
-  
-export function useAuth() {
-    return useContext(AuthContext)
-}

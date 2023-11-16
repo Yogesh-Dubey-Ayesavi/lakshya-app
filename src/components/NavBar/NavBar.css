@@ -1,6 +1,29 @@
-#navbar{
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    height: 5rem
+#navbar {
+  position: sticky;
+  top: 2rem;
+  left: 24%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 50vw;
+  background-color: #333333;
+  border-radius: 10rem;
+  padding: 2rem;
+  z-index: 100;
+  margin-bottom: 3rem;
+}
+
+#navbar > a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  #navbar {
+    left: 10%;
+    width: 70vw;
+    height: 2rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
 }

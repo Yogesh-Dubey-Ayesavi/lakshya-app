@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabaseClient ,lakshya} from "../utils/supabase_helper";
+import { supabaseClient } from "../utils/supabase_helper";
 
 
 function handleLogout(){
