@@ -1,9 +1,9 @@
 // PaymentPage.jsx
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabaseClient, lakshya } from "../../utils/supabase_helper";
-import useCart from "../../hooks/useCart";
 import ValidatePayment from "../../components/ValidatePayment/ValidatePayment";
+import useCart from "../../hooks/useCart";
+import { lakshya, supabaseClient } from "../../utils/supabase_helper";
 
 const PaymentPage = () => {
   const navigate = useNavigate();
@@ -23,14 +23,11 @@ const PaymentPage = () => {
       const paymentEndpoint = `${
         import.meta.env.VITE_PAYMENT_URL
       }?user_id=${userId}`;
-      const eventIds = cart.map((event) => event.id);
-      console.log(paymentEndpoint);
-      console.log(eventIds);
 
       try {
         // Send payment request
         const paymentRes = await lakshya.requestPayment(
-          eventIds,
+          cart,
           {},
           paymentEndpoint
         );
