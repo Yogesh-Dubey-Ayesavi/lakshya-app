@@ -18,7 +18,7 @@ const PaymentPage = () => {
         navigate("/");
         return;
       }
-      const userId = await (await supabaseClient.auth.getUser()).data.user.id;
+      const userId =  (await supabaseClient.auth.getUser()).data.user.id;
 
       const paymentEndpoint = `${
         import.meta.env.VITE_PAYMENT_URL
@@ -59,6 +59,8 @@ const PaymentPage = () => {
             img={paymentResponse.qr_codes[0]}
             link={paymentResponse.payment_links[0]}
             amt={paymentResponse.amount}
+            cart={cart}
+            requestId = {paymentResponse.request_id}
           />
         </div>
       )}
