@@ -56,7 +56,7 @@ const PaymentPage = () => {
       ) : (
         <div>
           <ValidatePayment
-            img={paymentResponse.qr_codes[0]}
+            img={paymentResponse.qr_codes}
             link={paymentResponse.payment_links[0]}
             amt={paymentResponse.amount}
             cart={cart}
