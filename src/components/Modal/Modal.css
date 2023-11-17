@@ -12,10 +12,10 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
-  left: 5%;
+  top: 25vh;
+  left: 32.5%;
   width: 90%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   background-color: #242424; /* Updated modal background color */
   color: #fff; /* Updated text color */
   padding: 20px;
@@ -56,7 +56,7 @@
 @media (min-width: 768px) {
   .modal {
     width: 40rem;
-    left: calc(50% - 20rem);
+    transform: scale(0.5);
   }
 }
 
