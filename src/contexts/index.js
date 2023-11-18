@@ -1,6 +1,6 @@
 // For easy import and export of the contexts in just one like lessgo
 
-import { CartProvider } from "./contexts/cart";
-import { AuthProvider } from "./contexts/auth";
+import { CartProvider } from "./cart";
+import { AuthProvider } from "./auth";
 
 export { CartProvider, AuthProvider };
