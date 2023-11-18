@@ -7,56 +7,97 @@
 }
 
 .cart-item-image {
-  width: 15rem; /* Adjust as needed */
-  height: 8rem;
-  object-fit: cover;
-  margin-right: 10px;
+  width: 50%; /* Adjusted size for laptops/tablets */
+  max-width: 10rem; /* Limiting max-width for smaller screens */
+  max-height: 5rem; /* Maintain aspect ratio */
+  margin-right: 2rem;
 }
 
 .cart-item-details {
+  display: flex;
+  justify-content: space-around;
   flex: 1;
+}
+
+.cart-item-header {
+  font-size: x-large;
+  width: 17.5vw;
 }
 
 .cart-item-title {
   margin-bottom: 5px;
 }
 
+.cart-item-subtitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-date,
 .cart-item-price {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #555;
 }
 
-#action {
+.remove-button {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#action > button {
-  height: 3rem;
+  align-self: center;
+  /* height: 5rem; */
+  margin-left: auto;
 }
 
 @media screen and (max-width: 768px) {
   .cart-item {
     flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
+    align-items: center; /* Align items to the start */
+    margin-bottom: 10px;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    padding: 1rem;
+    width: 80vw;
   }
 
   .cart-item-image {
     width: 100%; /* Full width for smaller screens */
-    height: 7rem;
+    max-width: 100%; /* Limiting max-width for smaller screens */
+    max-height: 5rem; /* Maintain aspect ratio */
     margin-bottom: 10px;
+    margin-right: 0;
   }
-
-  #action {
+  
+  .cart-item-details {
+    display: flex;
+    align-items: center; /* Center content horizontally */
+    justify-content: space-around;
+    width: 80vw
+  }
+  
+  .cart-item-header {
+    font-size: small;
+    margin-bottom: 5px;
+    width: 30vw;
+    text-align: left; /* Center text horizontally */
+  }
+  
+  .cart-item-subtitle {
+    display: flex;
     flex-direction: row;
-    width: 60vw;
     justify-content: space-between;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text horizontally */
+    max-height: 5rem;
+    width: 40vw;
   }
-
-  #action > button {
-    width: 50%; /* Full width for smaller screens */
-    
+  
+  .cart-item-date,
+  .cart-item-price {
+    font-size: 0.8rem;
+    color: #555;
   }
-
+  
+  .remove-button {
+    height: 3rem;
+    margin-top: auto; /* Align to the bottom */
+    text-align: center;
+  }
+  
 }

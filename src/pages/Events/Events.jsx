@@ -6,20 +6,39 @@ import toast from "react-hot-toast";
 import Modal from "../../components/Modal/Modal";
 import ModalEventItem from "../../components/Modal/ModalEventItem";
 import EventItem from "../../components/EventItem/EventItem";
+import Fuse from "fuse.js";
 
 const Events = () => {
   const [eventList, setEventList] = useState([]);
   const { addToCart, cart } = useCart();
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showAllEvents, setShowAllEvents] = useState(true); // New state to control whether to show all events or search results
 
   useEffect(() => {
-    // Fetch events from your API endpoint
     try {
       lakshya.getUnregisteredEvents().then((e) => setEventList(e));
     } catch (error) {
       console.error(error);
     }
   }, []);
+
+  // Configure Fuse.js options
+  const options = {
+    keys: ["name"],
+    threshold: 0.5,
+  };
+
+  // Create a new Fuse instance with the events and options
+  const fuse = new Fuse(eventList, options);
+
+  // Perform the search and update searchResults
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    const results = fuse.search(term);
+    setSearchResults(results);
+    setShowAllEvents(term === ""); // Show all events if the search term is empty || returns false if the search term is not empty/null
+  };
 
   const openModal = (event) => {
     setSelectedEvent(event);
@@ -41,15 +60,34 @@ const Events = () => {
   return (
     <>
       <div id="title">Events</div>
+      <div className="search-bar-container">
+        <input
+          type="text"
+          placeholder="Search events..."
+          onChange={handleSearchChange}
+        />
+      </div>
       <div className="card-list-container">
-        {eventList.map((event) => (
-          <EventItem event={event} openModal={openModal} key={event} />
-        ))}
+        {showAllEvents
+          ? eventList.map((event) => (
+              <EventItem event={event} openModal={openModal} key={event.id} />
+            ))
+          : searchResults.map((event) => (
+              <EventItem
+                event={event.item}
+                openModal={openModal}
+                key={event.item.id}
+              />
+            ))}
       </div>
 
       {selectedEvent && (
         <Modal onClose={closeModal}>
-          <ModalEventItem event={selectedEvent} closeModal={closeModal} handleAddToCart={handleAddToCart} />
+          <ModalEventItem
+            event={selectedEvent}
+            closeModal={closeModal}
+            handleAddToCart={handleAddToCart}
+          />
         </Modal>
       )}
     </>

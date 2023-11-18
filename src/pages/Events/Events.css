@@ -1,17 +1,32 @@
-.card-list-container {
-  display: grid;
-  grid-template-columns: repeat(3, 25rem);
-  gap: 1rem;
-  padding: 1rem;
-  position: relative;
-  justify-content: center; /* Center the content horizontally */
-  margin: 0 auto; /* Center the grid itself */
+.search-bar-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 767px) {
-  .card-list-container {
-    grid-template-columns: 100%; /* 1 column on small screens */
-    justify-items: center;
-    padding: 0.5rem; /* Adjust padding for small screens */
+.search-bar-container input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.card-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 90vw;
+  margin: auto
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    margin-bottom: 10px;
+  }
+
+  .search-bar-container input {
+    width: 50%;
   }
 }
