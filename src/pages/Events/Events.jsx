@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { lakshya } from "../../utils/supabase_helper";
 import useCart from "../../hooks/useCart";
-import "./Events.css";
+import classes from "./Events.module.css";
 import toast from "react-hot-toast";
 import Modal from "../../components/Modal/Modal";
 import ModalEventItem from "../../components/Modal/ModalEventItem";
@@ -59,15 +59,15 @@ const Events = () => {
 
   return (
     <>
-      <div id="title">Events</div>
-      <div className="search-bar-container">
+      <div id={classes.title}>Events</div>
+      <div className={classes["search-bar-container"]}>
         <input
           type="text"
           placeholder="Search events..."
           onChange={handleSearchChange}
         />
       </div>
-      <div className="card-list-container">
+      <div className={classes["card-list-container"]}>
         {showAllEvents
           ? eventList.map((event) => (
               <EventItem event={event} openModal={openModal} key={event.id} />

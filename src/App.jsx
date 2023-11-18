@@ -1,22 +1,27 @@
+/* eslint-disable no-unused-vars */
 import {
   createBrowserRouter,
   redirect,
   RouterProvider,
 } from "react-router-dom";
-import NotFound from "./components/404/not_found_component";
-import { AuthProvider } from "./contexts/auth";
-import Login from "./pages/Login";
-import Events from "./pages/Events/Events";
-import UpdateUser from "./pages/UpdateUser/UpdateUser";
+
+import {
+  Home,
+  Login,
+  Events,
+  Cart,
+  PaymentPage,
+  TicketsPage,
+  UpdateUser,
+} from "./pages/index";
+
+import { CartProvider, AuthProvider } from "./contexts/index";
+
+import NotFound from "./components/404/NotFound";
 import PrivateRoute from "./routes/private_route";
-import Home from "./pages/Home";
-import Cart from "./pages/Cart/Cart";
 import { Toaster } from "react-hot-toast";
 
-
 import logout from "./utils/logout";
-import { CartProvider } from "./contexts/cart";
-import PaymentPage from "./pages/Payment/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +45,9 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: '/payment',
-        element: <PaymentPage />
-      }
+        path: "/payment",
+        element: <PaymentPage />,
+      },
     ],
   },
   {
@@ -67,13 +72,15 @@ const App = () => {
     <AuthProvider>
       <CartProvider>
         <RouterProvider router={router} />
-        <Toaster position="bottom-right" toastOptions={{
-          style: {
-            background: "#333",
-            color: "white"
-          }
-        }}/>
-
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#333",
+              color: "white",
+            },
+          }}
+        />
       </CartProvider>
     </AuthProvider>
   );

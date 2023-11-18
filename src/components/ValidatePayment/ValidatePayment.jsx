@@ -1,15 +1,24 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { supabaseClient } from "../../utils/supabase_helper";
-import "./ValidatePayment.css";
+import classes from "./ValidatePayment.module.css";
+import Modal from "../Modal/Modal";
+import useCart from "../../hooks/useCart";
 
 const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const qrcodes = img.map((i) => URL.createObjectURL(i));
+  const [isModalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
+  const { clearCart } = useCart();
+
+  const toggleModal = () => {
+    setModalVisible((prev) => !prev);
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -33,9 +42,8 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
         )
       );
 
-      try {
+        try {
         setLoading(true);
-
         let response = await fetch(
           `${import.meta.env.VITE_PAY_VALIDATE_URL}?request_id=${requestId}`,
           {
@@ -43,10 +51,11 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
             body: formData,
           }
         );
-
+          
         if (response.status === 200) {
           console.log(response);
           toast("Payment Succeeded");
+          clearCart()
           navigate("/");
         } else {
           throw response;
@@ -63,40 +72,48 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
   };
 
   return (
-    <div className="payment-container">
+    <div className={classes["payment-container"]}>
       <h1>Total Price: ₹{amt}</h1>
 
       {qrcodes &&
         qrcodes.map((qr) => {
           return (
             <>
-              <div className="qr-code-container">
-                {loading && <div className="loading-spinner"></div>}
-                <img src={qr} alt="QR Code" />
+              <div className={classes["qr-code-container"]}>
+                {loading && (
+                  <Modal onClose={toggleModal}>
+                      <center>
+                      <h2>Processing the payment, please wait.</h2>
+                      <div className={classes["loading-spinner"]}></div>
+                      </center>
+                  </Modal>
+                )}
+                <img src={qr} className={classes.qrIMG} alt="QR Code" />
               </div>
             </>
           );
         })}
 
-      <p className="pay-link">
+      <p className={classes["pay-link"]}>
         <a href={link} target="_blank" rel="noopener noreferrer">
-          Pay Now
+          Open with UPI Apps
         </a>
       </p>
 
-      <div className="file-upload-container">
-        <label htmlFor="fileInput">Upload Payment Receipt:</label>
-        <br />
+      <div className={classes["file-upload-container"]}>
+        <label htmlFor="fileInput">
+          Upload Payment Receipt (Must Include <u>Transcation ID</u>):
+        </label>
         <input
           type="file"
-          id="fileInput"
+          id={classes.fileInput}
           accept="image/*"
           onChange={handleFileChange}
         />
       </div>
       <br />
 
-      {!loading && <button onClick={handleUpload}>Submit</button>}
+      {!loading && <button onClick={handleUpload} id={classes.submitBtn}>Submit</button>}
     </div>
   );
 };

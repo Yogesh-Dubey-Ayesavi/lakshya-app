@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import './ModalEventItem.css'
+import classes from './ModalEventItem.module.css'
 
 const ModalEventItem = ({ event, closeModal, handleAddToCart }) => {
   return (
@@ -7,19 +7,19 @@ const ModalEventItem = ({ event, closeModal, handleAddToCart }) => {
         <img
             src={event.picture}
             alt={event.name}
-            className="card-image"
+            className={classes["card-image"]}
           />
-          <div id="date-price">
-            <p className="card-date">
+          <div id={classes["date-price"]}>
+            <p className={classes["card-date"]}>
               {new Date(event.datetime).toLocaleDateString()}
             </p>
-            <p className="card-price">₹ {event.amount}</p>
+            <p className={classes["card-price"]}>₹ {event.amount}</p>
           </div>
           <h2>{event.name}</h2>
-          <p className="card-description">{event.description}</p>
-          <div className="button-container">
+          <p className={classes["card-description"]}>{event.description}</p>
+          <div className={classes["button-container"]}>
             <button
-              className="action"
+              className={classes.action}
               onClick={() => {
                 handleAddToCart(event);
                 closeModal();
@@ -27,7 +27,7 @@ const ModalEventItem = ({ event, closeModal, handleAddToCart }) => {
             >
               Add To Cart
             </button>
-            <button className="action" onClick={closeModal}>
+            <button className={classes.action} onClick={closeModal}>
               Cancel
             </button>
           </div>

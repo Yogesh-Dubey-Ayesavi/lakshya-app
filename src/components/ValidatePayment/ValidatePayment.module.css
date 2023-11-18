@@ -1,0 +1,76 @@
+/* ValidatePayment.module.css */
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.qr-code-container {
+  margin: 20px;
+}
+
+.pay-link {
+  font-size: 18px;
+  margin: 10px;
+}
+.file-upload-container {
+  text-align: center;
+}
+
+.file-upload-container label {
+  margin: 1rem auto;
+  display: block;
+}
+
+.file-upload-container input {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.qrIMG {
+  max-width: 70vw;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 3rem auto 2rem auto;
+}
+
+#submitBtn{
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .qr-code-container {
+    margin: 10px; /* Adjusted margin for smaller screens */
+  }
+
+  .qrIMG {
+    max-width: 55vw;
+  }
+
+  .pay-link {
+    font-size: 16px; /* Adjusted font size for smaller screens */
+    margin: 5px; /* Adjusted margin for smaller screens */
+  }
+}

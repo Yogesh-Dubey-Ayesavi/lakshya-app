@@ -1,18 +1,20 @@
 /* eslint-disable react/prop-types */
+import classes from './EventItem.module.css';
+
 const EventItem = ({ event, openModal }) => {
   return (
     <>
-      <div key={event.id} className="card">
-        <img src={event.picture} alt={event.name} className="card-image" />
-        <div className="card-content">
-          <h2 className="card-title">{event.name}</h2>
+      <div key={event.id} className={classes.card}>
+        <img src={event.picture} alt={event.name} className={classes["card-image"]} />
+        <div className={classes["card-content"]}>
+          <h2 className={classes["card-title"]}>{event.name}</h2>
           <div id="date-price">
-            <p className="card-date">
+            <p className={classes["card-date"]}>
               {new Date(event.datetime).toLocaleDateString()}
             </p>
-            <p className="card-price">₹ {event.amount}</p>
+            <p className={classes["card-price"]}>₹ {event.amount}</p>
           </div>
-          <button className="action" onClick={() => openModal(event)}>
+          <button className={classes.action} onClick={() => openModal(event)}>
             Show More Info
           </button>
         </div>

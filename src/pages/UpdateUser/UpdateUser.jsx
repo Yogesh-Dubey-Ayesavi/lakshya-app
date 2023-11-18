@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabaseClient } from "../../utils/supabase_helper";
 import useAuth from "../../hooks/useAuth";
-import "./UpdateUser.css"; 
+import classes from "./UpdateUser.module.css"; 
 
 const UpdateUser = () => {
   const { user } = useAuth();
@@ -47,10 +47,10 @@ const UpdateUser = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Enter Details</h2>
-      <form onSubmit={handleSubmit} className="my-form">
-        <div id="form-body">
+    <div className={classes["form-container"]}>
+      <h2 id={classes.title}>Enter Details</h2>
+      <form onSubmit={handleSubmit} className={classes.userForm}>
+        <div id={classes["form-body"]}>
           <label>
             Name:
             <input

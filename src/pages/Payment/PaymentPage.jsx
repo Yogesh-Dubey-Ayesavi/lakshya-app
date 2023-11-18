@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ValidatePayment from "../../components/ValidatePayment/ValidatePayment";
 import useCart from "../../hooks/useCart";
 import { lakshya, supabaseClient } from "../../utils/supabase_helper";
+import classes from './PaymentPage.module.css'
 
 const PaymentPage = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const PaymentPage = () => {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <h1 id={classes.title}>Loading...</h1>
       ) : (
         <div>
           <ValidatePayment

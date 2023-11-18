@@ -82,6 +82,13 @@
     margin-bottom: 1rem;
   }
   
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+
   @media (max-width: 767px) {
     .card {
       max-width: 80vw;

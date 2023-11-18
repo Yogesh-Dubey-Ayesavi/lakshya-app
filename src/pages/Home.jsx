@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home</h1>
+      <h1>Ignore this, need some data for the home page</h1>
 
       {data.eMail ? ( //just to make sure that the email field isnt empty
         <>
