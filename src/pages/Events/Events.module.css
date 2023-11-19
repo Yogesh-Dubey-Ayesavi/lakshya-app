@@ -1,0 +1,46 @@
+/* Events.css */
+.search-bar-container {
+  display: flex;
+  padding: 1rem 0 0 1rem;
+  justify-content: left;
+  margin: auto;
+  align-items: baseline;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #1a1a1a;
+  width: 30%;
+  border-radius: 4px;
+}
+
+.search-bar-container input {
+  background-color: transparent;
+  border: 0;
+  width: 90%;
+  transform: translateY(-1px);
+}
+
+.card-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 90vw;
+  margin: auto
+}
+
+#title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    margin-bottom: 10px;
+    width: 73vw;
+  }
+
+}

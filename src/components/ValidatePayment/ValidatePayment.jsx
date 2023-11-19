@@ -1,15 +1,25 @@
-import { useState } from 'react';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import { supabaseClient } from '../../utils/supabase_helper';
-import './ValidatePayment.css';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { supabaseClient } from "../../utils/supabase_helper";
+import Modal from "../Modal/Modal";
+import useCart from "../../hooks/useCart";
+
+import classes from "./ValidatePayment.module.css";
 
 const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
-  const [totalPrice, setTotalPrice] = useState(amt);
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const qrcode = URL.createObjectURL(img);
+  const qrcodes = img.map((i) => URL.createObjectURL(i));
+  const [isModalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
+  const { clearCart } = useCart();
+
+  const toggleModal = () => {
+    setModalVisible((prev) => !prev);
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -20,9 +30,9 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
     if (selectedFile) {
       const formData = new FormData();
       const userId = (await supabaseClient.auth.getUser()).data.user.id;
-      formData.append('file', selectedFile);
+      formData.append("file", selectedFile);
       formData.append(
-        'event_users',
+        "event_users",
         JSON.stringify(
           cart.map((e) => {
             return {
@@ -33,18 +43,21 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
         )
       );
 
-      try {
+        try {
         setLoading(true);
-
-        let response = await fetch(`${import.meta.env.VITE_PAY_VALIDATE_URL}?request_id=${requestId}`, {
-          method: 'POST',
-          body: formData,
-        });
-
+        let response = await fetch(
+          `${import.meta.env.VITE_PAY_VALIDATE_URL}?request_id=${requestId}`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+          
         if (response.status === 200) {
           console.log(response);
-          toast('Payment Succeeded');
-          navigate('/');
+          toast("Payment Succeeded");
+          clearCart()
+          navigate("/");
         } else {
           throw response;
         }
@@ -55,35 +68,53 @@ const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
         setLoading(false);
       }
     } else {
-      console.error('No file selected for upload');
+      console.error("No file selected for upload");
     }
   };
 
   return (
-    <div className="payment-container">
-      <h1>Total Price: ₹{totalPrice}</h1>
+    <div className={classes["payment-container"]}>
+      <h1>Total Price: ₹{amt}</h1>
 
-      {link && (
-        <div className="qr-code-container">
-          {loading && <div className="loading-spinner"></div>}
-          <img src={qrcode} alt="QR Code" />
-        </div>
-      )}
+      {qrcodes &&
+        qrcodes.map((qr) => {
+          return (
+            <>
+              <div className={classes["qr-code-container"]}>
+                {loading && (
+                  <Modal onClose={toggleModal}>
+                      <center>
+                      <h2>Processing the payment, please wait.</h2>
+                      <div className={classes["loading-spinner"]}></div>
+                      </center>
+                  </Modal>
+                )}
+                <img src={qr} className={classes.qrIMG} alt="QR Code" />
+              </div>
+            </>
+          );
+        })}
 
-      <p className="pay-link">
+      <p className={classes["pay-link"]}>
         <a href={link} target="_blank" rel="noopener noreferrer">
-          Pay Now
+          Open with UPI Apps
         </a>
       </p>
 
-      <div className="file-upload-container">
-        <label htmlFor="fileInput">Upload Payment Receipt:</label>
-        <br />
-        <input type="file" id="fileInput" accept="image/*" onChange={handleFileChange} />
+      <div className={classes["file-upload-container"]}>
+        <label htmlFor="fileInput">
+          Upload Payment Receipt (Must Include <u>Transcation ID</u>):
+        </label>
+        <input
+          type="file"
+          id={classes.fileInput}
+          accept="image/*"
+          onChange={handleFileChange}
+        />
       </div>
       <br />
 
-      {!loading && <button onClick={handleUpload}>Submit</button>}
+      {!loading && <button onClick={handleUpload} id={classes.submitBtn}>Submit</button>}
     </div>
   );
 };

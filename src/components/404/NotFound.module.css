@@ -1,0 +1,11 @@
+/* not_found.css */
+.not-found-container {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  text-align: center;
+}
+
+.not-found-content {
+  max-width: 400px; /* Adjust as needed */
+}
