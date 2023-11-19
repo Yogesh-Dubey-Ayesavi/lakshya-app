@@ -15,7 +15,8 @@
   top: 20vh;
   right: 12.5%;
   width: 70%;
-  background-color: #242424; /* Updated modal background color */
+  background-color: rgba(36, 36, 36, 0.8);
+  backdrop-filter: blur(1rem);
   padding: 1rem;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -40,10 +41,3 @@
     transform: translateY(0);
   }
 }
-
-/* @media (min-width: 768px) {
-  .modal {
-    width: 60vw;
-    transform: scale(0.5) translate(-50%, -50%); Adjust the transform for larger screens
-  }
-} */

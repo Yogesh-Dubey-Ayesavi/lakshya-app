@@ -1,14 +1,22 @@
 /* Events.css */
 .search-bar-container {
+  display: flex;
+  padding: 1rem 0 0 1rem;
+  justify-content: left;
+  margin: auto;
+  align-items: baseline;
   text-align: center;
   margin-bottom: 20px;
+  background-color: #1a1a1a;
+  width: 30%;
+  border-radius: 4px;
 }
 
 .search-bar-container input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 30%;
+  background-color: transparent;
+  border: 0;
+  width: 90%;
+  transform: translateY(-1px);
 }
 
 .card-list-container {
@@ -32,9 +40,7 @@
 @media (max-width: 768px) {
   .search-bar-container {
     margin-bottom: 10px;
+    width: 73vw;
   }
 
-  .search-bar-container input {
-    width: 50%;
-  }
 }

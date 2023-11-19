@@ -4,9 +4,10 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { supabaseClient } from "../../utils/supabase_helper";
-import classes from "./ValidatePayment.module.css";
 import Modal from "../Modal/Modal";
 import useCart from "../../hooks/useCart";
+
+import classes from "./ValidatePayment.module.css";
 
 const ValidatePayment = ({ img, link, amt, cart, requestId }) => {
   const [selectedFile, setSelectedFile] = useState(null);

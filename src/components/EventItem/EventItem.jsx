@@ -14,7 +14,7 @@ const EventItem = ({ event, openModal }) => {
             </p>
             <p className={classes["card-price"]}>₹ {event.amount}</p>
           </div>
-          <button className={classes.action} onClick={() => openModal(event)}>
+          <button onClick={() => openModal(event)}>
             Show More Info
           </button>
         </div>

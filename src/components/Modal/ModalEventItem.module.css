@@ -23,36 +23,23 @@
   
   .card-image {
     width: 100%;
-    height: 200px;
+    height: 12rem;
     object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .card-title {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #888;
   }
   
   .card-description {
     margin-bottom: 10px;
-    color: #555;
+    color: var(--details-gray);
   }
   
   .card-date {
     margin-bottom: 5px;
-    color: #777;
+    color: var(--heading-gray);
   }
   
   .card-price {
     font-weight: bold;
-    color: #4285f4;
+    color: var(--highlight-text);
   }
   
   #date-price {
@@ -63,20 +50,11 @@
   .action {
     display: flex;
     justify-content: center;
-    background-color: #4285f4;
-    border-radius: 2rem;
     text-align: center;
-    color: black;
     padding: 0.6rem;
     margin: 1rem 3rem;
-    transition: background-color 0.3s ease;
     width: 15rem;
   }
-  
-  .action:hover {
-    background-color: #015bbb;
-  }
-  
   
   .button-container {
     display: flex;
@@ -88,6 +66,9 @@
   @media (max-width: 767px) {
     .card {
       max-width: 80vw;
+    }
+    .card-image {
+      height: 8rem;
     }
 
     .action{

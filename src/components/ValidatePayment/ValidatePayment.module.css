@@ -28,7 +28,7 @@
 .file-upload-container input {
   display: inline-block;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--details-gray);
   border-radius: 4px;
   cursor: pointer;
 }

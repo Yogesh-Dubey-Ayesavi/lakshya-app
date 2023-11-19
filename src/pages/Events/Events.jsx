@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { lakshya } from "../../utils/supabase_helper";
 import useCart from "../../hooks/useCart";
-import classes from "./Events.module.css";
 import toast from "react-hot-toast";
 import Modal from "../../components/Modal/Modal";
 import ModalEventItem from "../../components/Modal/ModalEventItem";
 import EventItem from "../../components/EventItem/EventItem";
 import Fuse from "fuse.js";
+import { IoSearch } from "react-icons/io5";
+
+import classes from "./Events.module.css";
 
 const Events = () => {
   const [eventList, setEventList] = useState([]);
@@ -61,9 +63,11 @@ const Events = () => {
     <>
       <div id={classes.title}>Events</div>
       <div className={classes["search-bar-container"]}>
+        <IoSearch/>
         <input
+        id={classes.search}
           type="text"
-          placeholder="Search events..."
+          placeholder="Start typing to search events..."
           onChange={handleSearchChange}
         />
       </div>
