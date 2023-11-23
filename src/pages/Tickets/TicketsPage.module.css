@@ -1,0 +1,21 @@
+/* TicketsPage.module.css */
+
+
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vw 10vw
+}
+
+.heading{
+  text-align: center;
+}
+
+.ticket-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
