@@ -1,6 +1,6 @@
 // Just to easily export and import all the pages in one line
 
-import Home from "./Home";
+import Home from "./Home/Home";
 import Login from "./Login";
 import Events from "./Events/Events";
 import Cart from "./Cart/Cart";

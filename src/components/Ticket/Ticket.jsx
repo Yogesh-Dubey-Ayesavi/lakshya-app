@@ -13,7 +13,6 @@ const Ticket = ({ ticket, event }) => {
       const response = await fetch(
         `https://quickchart.io/qr?text=https://apis.ayesavi.in/?ticket=${ticket.ticket_id}&uid=${ticket.user_id}&eid=${event.id}&size=400`
       );
-      // console.log(response)
 
       if (response.ok) {
         setQrCodeUrl(response.url);
@@ -44,7 +43,7 @@ const Ticket = ({ ticket, event }) => {
             {new Date(event.datetime).toLocaleDateString()}
           </p>
           <p className={classes['ticket-price']}>Price: ₹{event.amount}</p>
-          <button onClick={fetchTickets}>Activate Ticket</button>
+          <button disabled={ticket.expired} onClick={fetchTickets}>Activate Ticket</button>
         </div>
       </div>
       {isModalOpen && (

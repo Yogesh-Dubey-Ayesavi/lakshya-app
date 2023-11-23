@@ -28,7 +28,7 @@ const Events = () => {
   // Configure Fuse.js options
   const options = {
     keys: ["name"],
-    threshold: 0.5,
+    threshold: 0.4,
   };
 
   // Create a new Fuse instance with the events and options
