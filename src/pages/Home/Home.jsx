@@ -97,7 +97,7 @@ const Home = () => {
       </section>
     </div>
 
-    <Link to='/tickets'>Check your tix here</Link>
+    <Link to='/tickets'>Check your tickets here</Link>
     </>
   );
 };

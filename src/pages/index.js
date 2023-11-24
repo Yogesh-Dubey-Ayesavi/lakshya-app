@@ -7,5 +7,5 @@ import Cart from "./Cart/Cart";
 import PaymentPage from "./Payment/PaymentPage";
 import TicketsPage from "./Tickets/TicketsPage";
 import UpdateUser from "./UpdateUser/UpdateUser";
-
-export { Home, Login, Events, Cart, PaymentPage, TicketsPage, UpdateUser}
+import PrivacyPage from './privacy/PrivacyPage';
+export { Home, Login, Events, Cart, PaymentPage, TicketsPage, UpdateUser,PrivacyPage}

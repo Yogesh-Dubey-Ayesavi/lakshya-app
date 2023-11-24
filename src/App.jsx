@@ -15,6 +15,7 @@ import {
   PaymentPage,
   TicketsPage,
   UpdateUser,
+  PrivacyPage
 } from "./pages/index";
 
 import { CartProvider, AuthProvider } from "./contexts/index";
