@@ -1,9 +1,11 @@
-/* eslint-disable no-unused-vars */
+
+
 import {
   createBrowserRouter,
   redirect,
   RouterProvider,
 } from "react-router-dom";
+
 
 import {
   Home,
@@ -22,6 +24,7 @@ import PrivateRoute from "./routes/private_route";
 import { Toaster } from "react-hot-toast";
 
 import logout from "./utils/logout";
+
 
 const router = createBrowserRouter([
   {
@@ -57,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/privacy",
+    element: <PrivacyPage />,
   },
   {
     path: "/logout",
