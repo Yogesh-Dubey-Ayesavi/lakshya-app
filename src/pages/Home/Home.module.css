@@ -1,0 +1,24 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .about, .highlights, .carousel, .whyAttend, .involved {
+    margin-bottom: 40px;
+  }
+  
+  .carousel {
+    margin: 0 auto;
+  }
+  
+  .whyAttend, .involved {
+    line-height: 1.6;
+  }
+  
+  

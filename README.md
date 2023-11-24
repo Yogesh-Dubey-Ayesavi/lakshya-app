@@ -1,3 +1,4 @@
+
 # Lakshya App 
 ### Empowering Event Management and Ticket Generation
 
@@ -40,3 +41,4 @@ Lakshya App is an open-source project that transforms the realm of event managem
 Lakshya App transcends traditional event management solutions by combining the strengths of React, Flutter, and Supabase. Whether you're orchestrating a small gathering or a large-scale conference, this open-source project equips you with the tools needed to streamline the process and deliver an exceptional experience for both organizers and attendees.
 
 Join the community, contribute to the Lakshya App project, and elevate the world of event management with this innovative solution.
+

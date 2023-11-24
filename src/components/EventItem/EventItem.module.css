@@ -1,0 +1,96 @@
+/* EventItem.module.css */
+
+.card {
+    width: 100%;
+    max-width: 25rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border 0.7s ease;
+    border: 1px solid transparent;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .card:hover:not(:focus-within) {
+    border: 1px solid rgba(192, 192, 192, 0.3);
+  }
+  
+  .card-content .action:hover {
+    transform: none;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .card-title {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: var(--heading-gray);
+  }
+  
+  .card-description {
+    margin-bottom: 10px;
+    color: var(--details-gray);
+  }
+  
+  .card-date {
+    margin-bottom: 5px;
+    color: var(--details-gray);
+  }
+  
+  .card-price {
+    font-weight: bold;
+    color: var(--highlight-text);
+  }
+  
+  #date-price {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+
+  @media (max-width: 767px) {
+    .card {
+      max-width: 80vw;
+    }
+
+    .action{
+        transform: translateX(-25px);
+    }
+  
+    #title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .card {
+      max-width: 45vw;
+    }
+  }
+  

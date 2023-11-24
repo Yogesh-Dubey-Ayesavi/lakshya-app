@@ -1,22 +1,29 @@
-import { Toaster } from "react-hot-toast";
+
+
 import {
   createBrowserRouter,
   redirect,
   RouterProvider,
 } from "react-router-dom";
-import NotFound from "./components/404/not_found_component";
-import { AuthProvider } from "./contexts/auth";
-import Cart from "./pages/Cart/Cart";
-import Events from "./pages/Events/Events";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import UpdateUser from "./pages/UpdateUser/UpdateUser";
+
+
+import {
+  Home,
+  Login,
+  Events,
+  Cart,
+  PaymentPage,
+  TicketsPage,
+  UpdateUser,
+  PrivacyPage
+} from "./pages/index";
+
+import { CartProvider, AuthProvider } from "./contexts/index";
+
+import NotFound from "./components/404/NotFound";
 import PrivateRoute from "./routes/private_route";
+import { Toaster } from "react-hot-toast";
 
-
-import { CartProvider } from "./contexts/cart";
-import PaymentPage from "./pages/Payment/PaymentPage";
-import PrivacyPage from "./pages/privacy/PrivacyPage";
 import logout from "./utils/logout";
 
 
@@ -41,11 +48,15 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
-      {
-        path: '/payment',
-        element: <PaymentPage />
-      }
     ],
+  },
+  {
+    path: "/payment",
+    element: <PaymentPage />,
+  },
+  {
+    path: "/tickets",
+    element: <TicketsPage />,
   },
   {
     path: "/login",
@@ -73,13 +84,15 @@ const App = () => {
     <AuthProvider>
       <CartProvider>
         <RouterProvider router={router} />
-        <Toaster position="bottom-right" toastOptions={{
-          style: {
-            background: "#333",
-            color: "white"
-          }
-        }}/>
-
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#333",
+              color: "white",
+            },
+          }}
+        />
       </CartProvider>
     </AuthProvider>
   );

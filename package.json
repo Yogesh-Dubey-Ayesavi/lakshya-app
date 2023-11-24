@@ -15,11 +15,15 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.38.4",
     "dotenv": "^16.3.1",
-    "lakshya-sdk": "^1.0.6",
+    "fuse.js": "^7.0.0",
+    "lakshya-sdk": "^1.0.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
-    "react-router-dom": "^6.18.0"
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.18.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

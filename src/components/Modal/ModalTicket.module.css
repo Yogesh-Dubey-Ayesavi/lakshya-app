@@ -1,0 +1,19 @@
+/* ModalTiclet.module.css */
+
+.modalContent {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .modalHeading {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .qrCode {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  

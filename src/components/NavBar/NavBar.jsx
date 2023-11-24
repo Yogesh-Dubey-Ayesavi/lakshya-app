@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom";
-import './NavBar.css'
+import classes from './NavBar.module.css';
 
 const NavBar = () => {
   return (
-    <nav id="navbar">
-        <NavLink to="/login">Login</NavLink>
+    <nav id={classes.navbar}>
         <NavLink to="/events">Events</NavLink>
         <NavLink to='/cart'>Cart</NavLink>
         <NavLink to="/logout">Logout</NavLink>
